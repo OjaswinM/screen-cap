@@ -2,15 +2,21 @@ import time
 from mss import mss
 import os
 
-sct = mss()
-
 def screencap(filename):
     sct.shot(output = filename)
+
+sct = mss()
+
+print("Enter the number of seconds to record for: ")
+sec = int(input("> "))
+
+print("Press any key to start: ")
+input(">")
 
 os.system('mkdir temp')
 i = 1
 
-tEnd = time.time() + 10
+tEnd = time.time() + sec
 print("Recording started: ")
 while(time.time() < tEnd):
     out = "temp/out" + str(i) + ".png"
